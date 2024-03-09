@@ -5,38 +5,16 @@
     align-items: top;
     padding: 5px;   
 }
-
-.header{
+.burger_menu{
     display: none;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px;
-    background-color: #464646;
-    border-radius: 25px;
-
-}
-.header_input{
-    display: flex;
-    background-color: #616161;
-    border-radius: 25px;
-    padding: 10px 15px;
-    width: 162px;
-    gap: 10px;
-    justify-content: center;
-    align-items: flex-end;
-}
-.header_input input{
-    width: 100%;
-   font-family: 'Roboto', sans-serif;
-   border: none;
-   outline: none;
-   font-size: 20px;
-   font-weight: 300;
-   background: inherit;
-   color: #fff;
+    position: absolute;
+    top: 0;
+    left:0;
+    transform: translate(30%, 30%);
 }
 
 .block{
+    position: relative;
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -47,21 +25,25 @@
     padding-bottom: 30px;
     gap: 15px;
     height: 347px;
+    justify-content: flex-end;
+    align-items: end;
 }
 .title{
     font-size: 32px;
     font-weight: 300;
+    transition: all .2s;
 
 }
 .title p{
     margin: 0;
-    text-align: baseline;
 }
 .text{
     font-weight: 600;
 }
 
-.input{
+.inputWrapper{
+    width: 100%;
+    max-width: 400px;
     display: flex;
     background-color: #fff;
     border-radius: 25px;
@@ -69,13 +51,15 @@
     gap: 10px;
     justify-content: center;
     align-items: flex-end;
+    transition: all .5s ;
 }
 
-.input input{
+.input{
     border: none;
     outline: none;
     width: 100%;
     font-size: 20px;
     font-weight: 300;
     background-color: inherit;
+    color: black;
 }
