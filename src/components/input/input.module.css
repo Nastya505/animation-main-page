@@ -1,0 +1,61 @@
+.inputWrapper{
+    width: 100%;
+    max-width: 400px;
+    display: flex;
+    background-color: #fff;
+    border-radius: 25px;
+    padding: 13px 15px;
+    gap: 10px;
+    justify-content: center;
+    align-items: flex-end;
+    transition: all .5s ;
+    position: relative;
+}
+
+.input{
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 20px;
+    font-weight:300;
+    background-color: inherit;
+    padding: 0;
+}
+
+
+.input:focus {
+    outline: 0;
+  }
+  
+  .list {
+    display: none;
+    position: absolute;
+    margin: 7px 0 0 0;
+    width: 100%;
+    max-height: 200px;
+    top: calc(100% - 1px);
+    left: 0;
+    list-style: none;
+    border-radius: 25px;
+    background: inherit;
+    overflow: hidden;
+    z-index: 100;
+    padding: 0;
+  }
+  
+  .list li {
+    padding: 0.5em 1em;
+    color: inherit;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight:300;
+  }
+  
+  .list li:hover {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
+  .active {
+    display: block !important;
+  }
+  
