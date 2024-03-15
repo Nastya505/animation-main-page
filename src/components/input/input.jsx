@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import gsap from 'gsap';
 
 import styles from './input.module.css';
 
@@ -13,7 +12,7 @@ const options = [
  
 ];
 
-const Input = () => {
+const Input = ({ animation }) => {
  const [value, setValue] = useState("");
  const [active, setActive] = useState(false);
 
@@ -28,38 +27,8 @@ const Input = () => {
     const selectedOptionExists = options.some(option =>option.name.toLowerCase() === selectedOption.toLowerCase());
     setValue(selectedOption);
     setActive(false);
-    
-    const tl = gsap.timeline();
-    if (selectedOptionExists) {
-        tl.to('#title', { display: 'none', opacity: 0 });
-        tl.fromTo(
-        '#input-wrapper',
-        { opacity: 1, y: 0, color: 'black' },
-        {
-          maxWidth: '162px',
-          y: 0,
-          backgroundColor: '#616161',
-          alignItems: 'end',
-          opacity: 1,
-          color: '#fff'
-        }
-        );
-        tl.to('#icon_input', { fill: '#fff', opacity: 1, duration: 0 });
-        tl.to('#input', { color: '#fff', opacity: 1, duration: 0 });
-        tl.to('#header', {
-        opacity: 1,
-        backgroundColor: '#464646',
-        height: '80px',
-        padding: '15px',
-        margin: 0,
-        alignItems: 'end'
-        }).fromTo('#burger', { display: 'none', opacity: 0 },
-         { display: 'flex', opacity: 1 });
-
-        document.getElementById('input').blur();
-    }
+    animation(selectedOptionExists);
   };
-
 
 
   return (
