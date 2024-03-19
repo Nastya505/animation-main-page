@@ -7,7 +7,7 @@
     padding: 13px 15px;
     gap: 10px;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     transition: all .5s ;
     position: relative;
 }
@@ -52,13 +52,11 @@
   cursor: pointer;
   font-size: 16px;
   font-weight:300;
-  padding-top: 5px;
   padding-inline: 20px;
   width: 100%;
 }
 
 .list li:last-child{
-  padding-top: 0px;
   padding-bottom:20px;
 
 }
