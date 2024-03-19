@@ -21,10 +21,11 @@ const Header = () => {
           backgroundColor: '#616161',
           alignItems: 'end',
           opacity: 1,
-          color: '#fff'
+          color: '#fff',
         }
         );
         tl.to('#icon_input', { fill: '#fff', opacity: 1, duration: 0 });
+        tl.to('#list', {textAlign: 'center', opacity: 1, duration: 0 });
         tl.to('#input', { color: '#fff', opacity: 1, duration: 0 });
         tl.to('#header', {
         opacity: 1,

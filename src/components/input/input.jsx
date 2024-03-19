@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState} from 'react';
 
 import styles from './input.module.css';
 
@@ -16,8 +16,9 @@ const Input = ({ animation }) => {
  const [value, setValue] = useState("");
  const [active, setActive] = useState(false);
 
- const showList = value === "" || options.some(d => d.name.includes(value)) || value !== "";
 
+ const showList = value !== "" && options.some(d => d.name.toLowerCase().startsWith(value.toLowerCase()));
+ 
  const handleInputChange = (e) => {
    setValue(e.target.value);
    setActive(true);
@@ -29,7 +30,6 @@ const Input = ({ animation }) => {
     setActive(false);
     animation(selectedOptionExists);
   };
-
 
   return (
     <div id='input-wrapper' className={styles.inputWrapper}>
@@ -43,18 +43,21 @@ const Input = ({ animation }) => {
         value={value}
         onChange={handleInputChange}
         onFocus={() => setActive(true)}
+        onBlur={() => setActive(false)}
       />
-      { value && value.length > 0 && (
-      <ul className={`${styles.list} ${active ? styles.active : ""}`} >
-        {showList &&
-          options
-            .filter(d => value === "" || (d.name && d.name.toLowerCase().includes(value.toLowerCase())))
-            .map((option) => (
-              <li key={option.id} onClick={() => handleOptionClick(option.name)}>
-                {option.name}
-              </li>
-            ))}
-      </ul>
+      {value && value.length > 0 && (
+        <ul id="list" className={`${styles.list} ${active ? styles.active : ""}`} >
+          {showList && (value !== "" && options.some(d => d.name.toLowerCase().startsWith(value.toLowerCase()))) &&
+            options
+              .filter(d => value === "" || (d.name && d.name.toLowerCase().includes(value.toLowerCase())))
+              .map((option) => (
+                <li key={option.id} onClick={() => handleOptionClick(option.name)}>
+                  {option.name}
+                </li>
+              
+              ))
+          }
+        </ul>
       )}
     </div>
   );
