@@ -1,5 +1,4 @@
 import React, { useState} from 'react';
-
 import styles from './input.module.css';
 
 const options = [
@@ -12,23 +11,36 @@ const options = [
  
 ];
 
+// данный компонент отвечает за ввод группы в поисковой строке и выбор группы из списка
 const Input = ({ animation }) => {
+
  const [value, setValue] = useState("");
  const [active, setActive] = useState(false);
 
+ //  проверяет, что значение не пустое и что хотя бы один из вариантов 
+ //  начинается с введенного значения (без учета регистра).
+ const showList = value !== "" && 
+  options
+    .some(d => d.name.toLowerCase()
+    .startsWith(value.toLowerCase()));
 
- const showList = value !== "" && options.some(d => d.name.toLowerCase().startsWith(value.toLowerCase()));
- 
+
+ // функция для изменения состояния поисковой строки
  const handleInputChange = (e) => {
    setValue(e.target.value);
    setActive(true);
  };
 
+ // функция для выбора группы
  const handleOptionClick = (selectedOption) => {
     const selectedOptionExists = options.some(option =>option.name.toLowerCase() === selectedOption.toLowerCase());
-    setValue(selectedOption);
-    setActive(false);
-    animation(selectedOptionExists);
+    if (selectedOptionExists) {
+      setValue(selectedOption);
+      setActive(false);
+      if(value !== selectedOption) {
+          animation(selectedOptionExists);
+      }
+    }
   };
 
   return (
@@ -46,8 +58,8 @@ const Input = ({ animation }) => {
         onBlur={() => setActive(false)}
       />
       {value && value.length > 0 && (
-        <ul id="list" className={`${styles.list} ${active ? styles.active : ""}`} >
-          {showList && (value !== "" && options.some(d => d.name.toLowerCase().startsWith(value.toLowerCase()))) &&
+        <ul id="list" className={`${styles.list} ${active ? styles.show : ""}`} >
+          {showList  &&
             options
               .filter(d => value === "" || (d.name && d.name.toLowerCase().includes(value.toLowerCase())))
               .map((option) => (

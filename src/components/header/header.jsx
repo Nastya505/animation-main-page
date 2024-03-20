@@ -7,16 +7,18 @@ import styles from './header.module.css';
 
 const Header = () => {
 
+  // анимация для инпута
   function inputAnimation() {
     const tl = gsap.timeline();
     tl.to('#icon_input', { fill: '#fff', opacity: 1, duration: .1 });
     tl.to('#input', { color: '#fff', opacity: 1, duration: .1})
     .fromTo('#burger', { display: 'none', opacity: 0, duration:0 },{ display: 'flex', opacity: 1, duration:.5 })
-    tl.to('#list', { textAlign: 'center', opacity: 1, duration: 0 });
     document.getElementById('input').blur();
   }
 
-  const animation = (selectedOptionExists) => {
+
+  // анимация для header если выбрана группа
+  const headerAnimation = (selectedOptionExists) => {
     const tl = gsap.timeline();
     if (selectedOptionExists) {
         tl.to('#title', { display: 'none', opacity: 0 }) ; 
@@ -53,7 +55,7 @@ const Header = () => {
           <p>Чтобы посмотреть расписание введи </p>
             <span className={styles.text}>группу</span>
         </div>
-        <Input animation={animation} />
+        <Input animation={headerAnimation} />
       </div>
   )
 }
