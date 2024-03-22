@@ -1,10 +1,4 @@
-.burger_menu{
-    display: none;
-    position: absolute;
-    top: 0;
-    left:0;
-    transform: translate(30%, 30%);
-}
+
 
 .header{
     position: relative;

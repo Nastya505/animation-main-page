@@ -1,7 +1,7 @@
 import React from 'react';
 import gsap from 'gsap';
 import Input from '../input/input';
-import burger_menu from "../../accets/burger-menu.svg";
+import BurgerMenu from '../burger-menu/burger-menu';
 
 import styles from './header.module.css';
 
@@ -12,7 +12,7 @@ const Header = () => {
     const tl = gsap.timeline();
     tl.to('#icon_input', { fill: '#fff', opacity: 1, duration: .1 });
     tl.to('#input', { color: '#fff', opacity: 1, duration: .1})
-    .fromTo('#burger', { display: 'none', opacity: 0, duration:0 },{ display: 'flex', opacity: 1, duration:.5 })
+    .fromTo('#burger-menu', { display: 'none', opacity: 0, duration:0 },{ display: 'block', opacity: 1, duration:.5 })
     document.getElementById('input').blur();
   }
 
@@ -49,7 +49,7 @@ const Header = () => {
 
   return (
     <div className={styles.header} id="header">
-        <img className={styles.burger_menu} id="burger" src={burger_menu}/>
+        <BurgerMenu />
         <div className={styles.title} id='title'>
           <p>Привет 👋🏼</p>
           <p>Чтобы посмотреть расписание введи </p>

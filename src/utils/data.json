@@ -1,0 +1,36 @@
+{
+    "ИСИП-9-21": {
+        "prev_week": {  },
+        "this_week": {
+            "from": "28.01.2024",
+            "to": "05.02.2024",
+            "days": [
+                {
+                    "day": "Понедельник",
+                    "date": "28.01.2024",
+                    "classes": [
+                        {
+                            "lesson": 3,
+                            "timeBegin":"11:30",
+                            "timeEnd":"13:05",
+                            "course":"Граф. дизайн",
+                            "rooms": [
+                                {
+                                    "place": "college",
+                                    "room": "207",
+                                    "extra": "A"      
+                                },
+                                {
+                                    "place": "college", 
+                                    "room": "208",
+                                    "extra": null
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "next_week": {  }
+    }
+}
